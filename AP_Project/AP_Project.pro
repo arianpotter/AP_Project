@@ -26,7 +26,8 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        ap.cpp
+        ap.cpp \
+    login.cpp
 
 HEADERS += \
         ap.h \
@@ -42,8 +43,12 @@ HEADERS += \
         sale_file.h \
         south_villa.h \
         user.h \
-        villa.h
+        villa.h \
+    login.h
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc

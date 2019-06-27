@@ -1,4 +1,5 @@
 #include "ap.h"
+#include"login.h"
 #include <QApplication>
 #include "headers.h"
 bool sign_up_usr(string _name,tm _birth_date,string _username,size_t _password){
@@ -28,12 +29,13 @@ manager& login_mgr(string _username,size_t _password){
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    AP w;
+    Login w;
+    w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     time_t now;
     time(&now);
     struct tm *t=localtime(&now);
-    sign_up("Arian",*t,"arianpotter",1234);
-
+    sign_up_usr("Arian",*t,"arianpotter",1234);
+    w.setStyleSheet("border-radius: 5px");
     w.show();
 
     return a.exec();
