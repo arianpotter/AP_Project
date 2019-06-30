@@ -14,12 +14,13 @@
 #include "rent_file.h"
 #include<map>
 #include<vector>
-map<string,user> users; //string -> username
-map<string,manager> managers; //string->username
-map<string,apartment>apartments; //string->ID
-map<string,south_villa>south_villas;//string->ID
-map<string,north_villa>north_villas;//string->ID
-map<string,vector<flat>> flats;//string->ID_apartmant
-map<string,vector<log>> logs;//string->ID log ha
+#include<QString>
+map<QString,user> users; //string -> username
+map<QString,manager> managers; //string->username
+map<QString,apartment>apartments; //string->ID
+map<QString,south_villa>south_villas;//string->ID
+map<QString,north_villa>north_villas;//string->ID
+map<QString,vector<flat>> flats;//string->ID_apartmant
+map<QString,vector<log>> logs;//string->ID log ha
 ////TODO map<string,vector<flat*>> flats when reading from apartment file                    map<string,vector<log>> logs when reading from persons
 #endif // HEADERS_H

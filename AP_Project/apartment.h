@@ -24,5 +24,7 @@ public:
     long double total_price(){
         return current_apartment->get_base_price()*building_area;
     }
+    string get_picture(){return picture;}
+    string get_current_apartment_ID(){return current_apartment_ID;}
 };
 #endif // APARTMENT_H

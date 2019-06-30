@@ -100,9 +100,9 @@ AddNewApartment_UI::AddNewApartment_UI(QWidget *parent) : QWidget(parent)
 
     //set h hox layout
 
-    myFinalLayOut->addLayout(mySecondVBoxLayOut,0,0,0);
-    myFinalLayOut->addLayout(myFirstVBoxLayOut,0,1,0);
-    myFinalLayOut->addLayout(myHBoxLayOutBotton,1,0,1,2,0);
+    myFinalLayOut->addLayout(mySecondVBoxLayOut,0,0);
+    myFinalLayOut->addLayout(myFirstVBoxLayOut,0,1);
+    myFinalLayOut->addLayout(myHBoxLayOutBotton,1,0,1,2);
 
 
     //set frame
@@ -139,7 +139,7 @@ AddNewApartment_UI::AddNewApartment_UI(QWidget *parent) : QWidget(parent)
     labeDragAndDropUnits->setStyleSheet("background-color:#f2f2f2;color:#595959;padding:10px;border:1px solid #bfbfbf; font-weight:bold;font-family:Serif ");
 
 
-    pushBottonAdd->setStyleSheet("QPushButton:pressed {background-color: #00cc00;color:#009900;padding:10px;border:1px solid #009900; font-weight:bold;font-family:Serif;margin-top:20px} QPushButton{ background-color:#b3ffb3;color:#009900;padding:10px;border:1px solid #009900; font-weight:bold;font-family:Serif} ");
+    pushBottonAdd->setStyleSheet("QPushButton:pressed {background-color: #00cc00;color:#009900;padding:10px;border:1px solid #009900; font-weight:bold;font-family:Serif;} QPushButton{ background-color:#b3ffb3;color:#009900;padding:10px;border:1px solid #009900; font-weight:bold;font-family:Serif} ");
     pushBottonCancel->setStyleSheet("QPushButton:pressed {background-color:#ff1a1a;color:#b30000;padding:10px;border:1px solid #b30000; font-weight:bold;font-family:Serif } QPushButton{ background-color:#ffb3b3;color:#b30000;padding:10px;border:1px solid #b30000; font-weight:bold;font-family:Serif }");
 
 

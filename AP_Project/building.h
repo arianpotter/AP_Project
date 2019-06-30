@@ -13,6 +13,9 @@ protected:
     string picture;
 public:
     long double get_base_price(){return base_price;}
+    string get_address(){return address;}
+    string get_picture(){return picture;}
+    long long get_total_area(){return total_area;}
 };
 
 #endif // BUILDING_H

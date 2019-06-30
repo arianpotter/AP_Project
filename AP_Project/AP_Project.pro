@@ -28,8 +28,10 @@ SOURCES += \
         main.cpp \
         ap.cpp \
     login.cpp \
+    main_ui.cpp \
     register_ui.cpp \
-    addnewapartment_ui.cpp
+    addnewapartment_ui.cpp \
+    showbuilding_widget.cpp
 
 HEADERS += \
         ap.h \
@@ -38,11 +40,13 @@ HEADERS += \
         file.h \
         have_file.h \
         headers.h \
+    main_ui.h \
         manager.h \
         north_villa.h \
         person.h \
         rent_file.h \
         sale_file.h \
+    showbuilding_widget.h \
         south_villa.h \
         user.h \
         villa.h \
