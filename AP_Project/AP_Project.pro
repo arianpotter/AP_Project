@@ -27,7 +27,9 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         ap.cpp \
-    login.cpp
+    login.cpp \
+    register_ui.cpp \
+    addnewapartment_ui.cpp
 
 HEADERS += \
         ap.h \
@@ -44,7 +46,9 @@ HEADERS += \
         south_villa.h \
         user.h \
         villa.h \
-    login.h
+    login.h \
+    register_ui.h \
+    addnewapartment_ui.h
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

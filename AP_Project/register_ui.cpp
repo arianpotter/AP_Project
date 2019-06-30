@@ -1,25 +1,27 @@
-#include "login.h"
+#include "register_ui.h"
 
-
-
-
-Login::Login(QWidget *parent) : QWidget(parent)
+Register_UI::Register_UI(QWidget *parent) : QWidget(parent)
 {
     labelUsername = new QLabel(tr("Username"));
     labelPassword = new QLabel(tr("Password"));
+    labelFullName = new QLabel(tr("Full Name"));
+    labelBirthday = new QLabel(tr("Birthday"));
     //userPicture = new QLabel;
 
 
-    pushButtonLogin = new QPushButton(tr("Log in"));
+    pushButtonRegister = new QPushButton(tr("Register"));
     pushButtonCancel = new QPushButton(tr("Cancel"));
 
     lineEditUsername = new QLineEdit;
-
     lineEditPassword = new QLineEdit;
     lineEditPassword->setEchoMode(QLineEdit::Password);
-
+    lineEditFullName = new QLineEdit;
 
     checkBoxShowPassword = new QCheckBox(tr("Show"));
+
+    dateEditBirthday = new QDateEdit;
+    dateEditBirthday->setCalendarPopup(true);
+
 
     //LayOut
 
@@ -32,22 +34,20 @@ Login::Login(QWidget *parent) : QWidget(parent)
     myHLayout->addWidget(labelPassword,0,Qt::AlignLeft);
     myHLayout->addWidget(checkBoxShowPassword,0,Qt::AlignRight);
 
-    //myVLayout->addWidget(userPicture);
     myVLayout->addWidget(labelUsername);
     myVLayout->addWidget(lineEditUsername);
     myVLayout->addLayout(myHLayout);
     myVLayout->addWidget(lineEditPassword);
-    myVLayout->addWidget(pushButtonLogin);
+    myVLayout->addWidget(labelFullName);
+    myVLayout->addWidget(lineEditFullName);
+    myVLayout->addWidget(labelBirthday);
+    myVLayout->addWidget(dateEditBirthday);
+    myVLayout->addWidget(pushButtonRegister);
     myVLayout->addWidget(pushButtonCancel);
 
-    //fixed size??
-    //myVLayout->setSizeConstraint(QLayout::SetFixedSize);
-
     //css
-    pushButtonLogin->setStyleSheet("QPushButton:pressed {background-color: #00cc00;color:#009900;padding:10px;border:1px solid #009900; font-weight:bold;font-family:Serif;margin-top:20px} QPushButton{ background-color:#b3ffb3;color:#009900;padding:10px;border:1px solid #009900; font-weight:bold;font-family:Serif;margin-top:20px} ");
+    pushButtonRegister->setStyleSheet("QPushButton:pressed {background-color: #00cc00;color:#009900;padding:10px;border:1px solid #009900; font-weight:bold;font-family:Serif;margin-top:20px} QPushButton{ background-color:#b3ffb3;color:#009900;padding:10px;border:1px solid #009900; font-weight:bold;font-family:Serif;margin-top:20px} ");
     pushButtonCancel->setStyleSheet("QPushButton:pressed {background-color:#ff1a1a;color:#b30000;padding:10px;border:1px solid #b30000; font-weight:bold;font-family:Serif } QPushButton{ background-color:#ffb3b3;color:#b30000;padding:10px;border:1px solid #b30000; font-weight:bold;font-family:Serif }");
-
-
 
     this->setStyleSheet("background-color:#f2f2f2;");
 
@@ -55,6 +55,10 @@ Login::Login(QWidget *parent) : QWidget(parent)
     myFrame->setStyleSheet("background-color:white;border-radius: 5px;");
     lineEditUsername->setStyleSheet("background-color:#f2f2f2;color:#595959;padding:10px;border:1px solid #bfbfbf; font-weight:bold;font-family:Serif ");
     lineEditPassword->setStyleSheet("background-color:#f2f2f2;color:#595959;padding:10px;border:1px solid #bfbfbf; font-weight:bold;font-family:Serif ");
+    lineEditFullName->setStyleSheet("background-color:#f2f2f2;color:#595959;padding:10px;border:1px solid #bfbfbf; font-weight:bold;font-family:Serif ");
+
+
+    dateEditBirthday->setStyleSheet("background-color:#f2f2f2;color:#595959;padding:10px;border:1px solid #bfbfbf; font-weight:bold;font-family:Serif ");
 
     //set icon
     const QIcon iconUsername(":/icons/resource/icons/User_Login.png");
@@ -64,6 +68,11 @@ Login::Login(QWidget *parent) : QWidget(parent)
     const QIcon iconPassword(":/icons/resource/icons/Password_Login.png");
     lineEditPassword->setClearButtonEnabled(true);
     lineEditPassword->addAction(iconPassword,QLineEdit::LeadingPosition);
+
+    const QIcon iconFullName(":/icons/resource/icons/Register_FullName.png");
+    lineEditFullName->setClearButtonEnabled(true);
+    lineEditFullName->addAction(iconFullName,QLineEdit::LeadingPosition);
+
 
 
     //set frame
@@ -90,21 +99,17 @@ Login::Login(QWidget *parent) : QWidget(parent)
 }
 
 
-//func
-
-
-void Login::mousePressEvent(QMouseEvent *event) {
+void Register_UI::mousePressEvent(QMouseEvent *event) {
     m_nMouseClick_X_Coordinate = event->x();
     m_nMouseClick_Y_Coordinate = event->y();
 }
 
-void Login::mouseMoveEvent(QMouseEvent *event) {
+void Register_UI::mouseMoveEvent(QMouseEvent *event) {
     move(event->globalX()-m_nMouseClick_X_Coordinate,event->globalY()-m_nMouseClick_Y_Coordinate);
 }
 
 
-
-void Login::setPasswordEchoMode(bool checked)
+void Register_UI::setPasswordEchoMode(bool checked)
 {
     if(checked){
         lineEditPassword->setEchoMode(QLineEdit::Normal);

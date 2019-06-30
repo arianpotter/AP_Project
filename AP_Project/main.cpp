@@ -1,6 +1,8 @@
 #include "ap.h"
 #include"login.h"
+#include "register_ui.h"
 #include <QApplication>
+#include "addnewapartment_ui.h"
 #include "headers.h"
 bool sign_up_usr(string _name,tm _birth_date,string _username,size_t _password){
     if(users.count(_username)==1){
@@ -29,13 +31,35 @@ manager& login_mgr(string _username,size_t _password){
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Login w;
+    AddNewApartment_UI w;
+    //fameless
     w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    /////////////////
     time_t now;
     time(&now);
     struct tm *t=localtime(&now);
     sign_up_usr("Arian",*t,"arianpotter",1234);
-    w.setStyleSheet("border-radius: 5px");
+
+    //set the size of windows!its need to change!
+    QSize availableSize = qApp->desktop()->availableGeometry().size();
+        int width = availableSize.width();
+        int height = availableSize.height();
+        //qDebug() << "Available dimensions " << width << "x" << height;
+        width *= 0.138; // 90% of the screen size
+        height *= 0.138; // 90% of the screen size
+        //qDebug() << "Computed dimensions " << width << "x" << height;
+        QSize newSize( width, height );
+
+        w.setGeometry(
+            QStyle::alignedRect(
+                Qt::LeftToRight,
+                Qt::AlignCenter,
+                newSize,
+                qApp->desktop()->availableGeometry()
+            )
+        );
+
+
     w.show();
 
     return a.exec();

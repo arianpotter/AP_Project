@@ -1,6 +1,7 @@
-#ifndef LOGIN_H
-#define LOGIN_H
+#ifndef REGISTER_UI_H
+#define REGISTER_UI_H
 
+#include <QWidget>
 #include <QObject>
 #include <QWidget>
 #include <QPushButton>
@@ -16,27 +17,34 @@
 #include <QStyle>
 #include <QDesktopWidget>
 #include <QApplication>
+#include <QDateEdit>
 
-class Login : public QWidget
+class Register_UI : public QWidget
 {
     Q_OBJECT
+
     QLabel *labelUsername;
     QLabel *labelPassword;
+    QLabel *labelFullName;
+    QLabel *labelBirthday;
 
     QLineEdit *lineEditUsername;
     QLineEdit *lineEditPassword;
-
-    QPushButton *pushButtonLogin;
-    QPushButton *pushButtonCancel;
+    QLineEdit *lineEditFullName;
 
     QCheckBox *checkBoxShowPassword;
+
+    QDateEdit *dateEditBirthday;
+
+    QPushButton *pushButtonRegister;
+    QPushButton *pushButtonCancel;
+
 
     QVBoxLayout *myVLayout;
     QHBoxLayout *myHLayout;
 
     QFrame *myFrame;
 
-    //move the window
     void mousePressEvent(QMouseEvent *event);
 
     void mouseMoveEvent(QMouseEvent *event);
@@ -45,12 +53,16 @@ class Login : public QWidget
 
 private slots:
     void setPasswordEchoMode(bool);
+
+
+
 public:
-    explicit Login(QWidget *parent = nullptr);
+    explicit Register_UI(QWidget *parent = nullptr);
+
 
 signals:
 
 public slots:
 };
 
-#endif // LOGIN_H
+#endif // REGISTER_UI_H
